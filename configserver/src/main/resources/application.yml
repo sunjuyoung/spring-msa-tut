@@ -1,0 +1,27 @@
+server:
+  port: 8888
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sunjuyoung/spring-cloud-configs.git
+          clone-on-start: true
+          default-label: main
+          #private repo일경우
+          #username: {username}
+          #password: 토큰값
+    bus:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: busrefresh, health, info
