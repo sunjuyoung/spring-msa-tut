@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class MemberController {
     private final MemberService memberService;
     private final JwtTokenProvider jwtTokenProvider;
+
     @Qualifier("rtdb")
     private final RedisTemplate<String, Object> redisTemplate;
     @Value("${jwt.secretKeyRt}")

@@ -23,12 +23,12 @@ public class ArticleLikeController {
 
     @PostMapping("/article/{articleId}/user/{userId}")
     public Long like(@PathVariable("articleId") Long articleId, @PathVariable("userId") Long userId) {
-        return articleLikeService.like(articleId, userId);
+        return articleLikeService.likePessimisticLock1(articleId, userId);
     }
 
     @DeleteMapping("/article/{articleId}/user/{userId}")
     public void unlike(@PathVariable("articleId") Long articleId, @PathVariable("userId") Long userId) {
-        articleLikeService.unlike(articleId, userId);
+        articleLikeService.unlikePessimisticLock1(articleId, userId);
     }
 
 }

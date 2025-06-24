@@ -26,7 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> productDetail(@PathVariable Long id) throws InterruptedException {
+    public ResponseEntity<ProductResDto> productDetail(@PathVariable Long id) throws InterruptedException {
        // Thread.sleep(4000L);
        ProductResDto dto = productService.productDetail(id);
         return new ResponseEntity<>(dto, HttpStatus.OK);
